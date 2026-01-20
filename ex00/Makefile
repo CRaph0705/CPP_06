@@ -3,7 +3,7 @@
 
 CC			= 	c++
 CFLAGS		=	-Wall -Werror -Wextra -std=c++98
-NAME		=	Converter
+NAME		=	convert
 OBJ_DIR		=	obj/
 SRC			=	src/
 INCLUDES	=	-I ./includes -MMD -MP
