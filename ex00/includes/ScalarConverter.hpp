@@ -6,7 +6,7 @@
 /*   By: rcochran <rcochran@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/20 10:54:53 by rcochran          #+#    #+#             */
-/*   Updated: 2026/01/21 12:21:06 by rcochran         ###   ########.fr       */
+/*   Updated: 2026/01/21 14:00:54 by rcochran         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,15 +26,11 @@ class ScalarConverter
 	public :
 		static bool isSpecialCase(const std::string &input)
 		{
-			(void)input;
-			/* 
-				- specific cases
-				> inf, -inf
-				> inff, -inff
-				> nan
-				> nanf
-			*/
-			return (0);
+			return (
+				input == "inf" || input == "+inf" || input == "-inf" ||
+				input == "inff" || input == "+inff"|| input == "-inff" || 
+				input == "nan" || input == "nanf"
+			);
 		}
 
 		static void handleSpecialCase(const std::string &input)
@@ -42,7 +38,19 @@ class ScalarConverter
 			(void)input;
 			return ;
 		}
-	
+
+		static bool isInvalidInput(const std::string &input)
+		{
+			(void)input;
+			return (0);
+		}
+
+		static void handleInvalidInput(const std::string &input)
+		{
+			(void)input;
+			return ;
+		}
+
 		static void convert(const std::string &input)
 		{
 			double value;
@@ -66,7 +74,9 @@ class ScalarConverter
 			
 			if (isSpecialCase(input))
 				return (handleSpecialCase(input));
-
+			
+			if (isInvalidInput(input))
+				return (handleInvalidInput(input));
 			for (int i = 0; i < 4; i++)
 			{
 				try
