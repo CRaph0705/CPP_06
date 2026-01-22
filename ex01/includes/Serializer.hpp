@@ -6,7 +6,7 @@
 /*   By: rcochran <rcochran@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/22 12:12:45 by rcochran          #+#    #+#             */
-/*   Updated: 2026/01/22 12:19:45 by rcochran         ###   ########.fr       */
+/*   Updated: 2026/01/22 16:31:19 by rcochran         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@ class Serializer {
 		Serializer( void );
 		Serializer( const Serializer &cpy );
 		~Serializer( );
-		Serializer operator=( const Serializer &cpy );
+		Serializer &operator=( const Serializer &cpy );
 	public:
-		static uintptr_t serialize(Data* ptr);
-		static Data* deserialize(uintptr_t raw);
+		// static uintptr_t serialize(Data* ptr);
+		// static Data* deserialize(uintptr_t raw);
 
 } ;
