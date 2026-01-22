@@ -6,7 +6,7 @@
 /*   By: rcochran <rcochran@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/20 10:54:53 by rcochran          #+#    #+#             */
-/*   Updated: 2026/01/22 15:17:50 by rcochran         ###   ########.fr       */
+/*   Updated: 2026/01/22 15:31:06 by rcochran         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,6 @@ class ScalarConverter
 			else
 			{
 				value = std::strtod(input.c_str(), &end);
-				std::cout << "value after strtod = "<< value << std::endl;
 				if (*end == 'f')
 					end++;
 				if (*end != '\0')
