@@ -6,7 +6,7 @@
 /*   By: rcochran <rcochran@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/20 10:54:53 by rcochran          #+#    #+#             */
-/*   Updated: 2026/01/22 12:07:02 by rcochran         ###   ########.fr       */
+/*   Updated: 2026/01/22 15:17:50 by rcochran         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 #include <cstdlib>
 #include <limits.h>
 #include <iomanip>
+#include <cstring>
 
 class ScalarConverter
 {
@@ -30,10 +31,19 @@ class ScalarConverter
 			char *end;
 			std::string invalid = "nan";
 
-			value = std::strtod(input.c_str(), &end);
-			if (*end != '\0')
-				value = std::strtod(invalid.c_str(), &end);
-
+			if (std::strlen(input.c_str()) == 1 && !std::isdigit(input.c_str()[0]))
+			{
+				value = input[0] + 0;
+			}
+			else
+			{
+				value = std::strtod(input.c_str(), &end);
+				std::cout << "value after strtod = "<< value << std::endl;
+				if (*end == 'f')
+					end++;
+				if (*end != '\0')
+					value = std::strtod(invalid.c_str(), &end);
+			}
 			typedef void (*Converter)(double value);
 			Converter converters[4] = {
 				&conversionToChar,
