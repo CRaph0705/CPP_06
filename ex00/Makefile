@@ -7,7 +7,8 @@ NAME		=	convert
 OBJ_DIR		=	obj/
 SRC			=	src/
 INCLUDES	=	-I ./includes -MMD -MP
-FILES		= 	$(MAIN)$(EXT)
+FILES		= 	$(MAIN)$(EXT) \
+				$(SRC)ScalarConverter$(EXT)
 
 
 EXT			=	.cpp
