@@ -6,13 +6,15 @@
 /*   By: rcochran <rcochran@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/22 12:12:45 by rcochran          #+#    #+#             */
-/*   Updated: 2026/01/22 16:31:19 by rcochran         ###   ########.fr       */
+/*   Updated: 2026/01/23 12:14:52 by rcochran         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
 #pragma once
 #include <iostream>
+#include <cstdint>
+#include "structures.hpp"
 
 class Serializer {
 	private:
@@ -21,7 +23,17 @@ class Serializer {
 		~Serializer( );
 		Serializer &operator=( const Serializer &cpy );
 	public:
-		// static uintptr_t serialize(Data* ptr);
-		// static Data* deserialize(uintptr_t raw);
+		static uintptr_t serialize(Data* ptr)
+		{
+			return (reinterpret_cast<uintptr_t>(ptr));
+		}
+
+		static Data* deserialize(uintptr_t raw)
+		{
+			return (reinterpret_cast<Data*>(raw));
+		}
 
 } ;
+
+// https://www.quora.com/How-do-you-explain-the-differences-among-static_cast-reinterpret_cast-const_cast-and-dynamic_cast-to-a-new-C++-programmer
+// https://en.cppreference.com/w/cpp/language/reinterpret_cast.html
