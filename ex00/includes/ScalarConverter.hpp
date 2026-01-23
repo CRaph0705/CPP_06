@@ -6,14 +6,14 @@
 /*   By: rcochran <rcochran@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/20 10:54:53 by rcochran          #+#    #+#             */
-/*   Updated: 2026/01/22 15:31:06 by rcochran         ###   ########.fr       */
+/*   Updated: 2026/01/23 12:20:23 by rcochran         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 #include <iostream>
 #include <cstdlib>
-#include <limits.h>
+#include <climits>
 #include <iomanip>
 #include <cstring>
 
@@ -53,14 +53,7 @@ class ScalarConverter
 
 			for (int i = 0; i < 4; i++)
 			{
-				try
-				{
-					converters[i](value);
-				}
-				catch(const std::exception& e)
-				{
-					std::cerr << e.what() << '\n';
-				}
+				converters[i](value);
 			}
 			return ;
 		}

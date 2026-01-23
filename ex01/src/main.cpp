@@ -1,8 +1,16 @@
 #include "main.hpp"
 
-int main( int ac, char **av )
+
+int main()
 {
-	(void)ac;
-	(void)av;
-	return (0);
+    Data data;
+    data.value = 42;
+
+    uintptr_t raw = Serializer::serialize(&data);
+    Data* ptr = Serializer::deserialize(raw);
+
+    std::cout << "Original address : " << &data << std::endl;
+    std::cout << "Deserialized address : " << ptr << std::endl;
+    std::cout << "Value : " << ptr->value << std::endl;
 }
+
