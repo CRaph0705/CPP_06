@@ -6,7 +6,7 @@
 /*   By: rcochran <rcochran@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/20 10:54:53 by rcochran          #+#    #+#             */
-/*   Updated: 2026/01/23 12:20:23 by rcochran         ###   ########.fr       */
+/*   Updated: 2026/01/26 12:15:12 by rcochran         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include <climits>
 #include <iomanip>
 #include <cstring>
+#include <math.h>
 
 class ScalarConverter
 {
@@ -37,7 +38,7 @@ class ScalarConverter
 			}
 			else
 			{
-				value = std::strtod(input.c_str(), &end);
+				value = (std::strtod(input.c_str(), &end));
 				if (*end == 'f')
 					end++;
 				if (*end != '\0')
@@ -61,9 +62,11 @@ class ScalarConverter
 		
 		static void conversionToChar(double value)
 		{
-			if (value >= 32 && value <= 126)
-				std::cout << "char: '" << static_cast<char>(value) << "'\n";
-			else if (value >= 0 && value <= 127)
+			// std::cout << value << std::endl;
+			int _value = static_cast<int>(floor(value));
+			if (_value >= 32 && _value <= 126)
+				std::cout << "char: '" << static_cast<char>(_value) << "'\n";
+			else if (_value >= 0 && _value <= 127)
 				std::cout << "char: Non displayable\n";
 			else
 				std::cout << "char: impossible\n";
