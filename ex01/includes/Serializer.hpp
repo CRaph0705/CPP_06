@@ -6,14 +6,14 @@
 /*   By: rcochran <rcochran@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/22 12:12:45 by rcochran          #+#    #+#             */
-/*   Updated: 2026/01/23 12:14:52 by rcochran         ###   ########.fr       */
+/*   Updated: 2026/01/26 11:02:16 by rcochran         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
 #pragma once
 #include <iostream>
-#include <cstdint>
+#include <stdint.h>
 #include "structures.hpp"
 
 class Serializer {
