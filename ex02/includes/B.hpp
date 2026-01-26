@@ -2,5 +2,4 @@
 
 class B : public Base
 {
-
 } ;
