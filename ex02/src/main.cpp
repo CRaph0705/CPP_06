@@ -18,7 +18,7 @@ Base* generate( void )
 	return (std::cout << "new C" << std::endl, new C);
 }
 
-void identify(Base* p) // * et pas & car sinon on ne return pas nullptr en cas de fail 
+void identify(Base* p)
 {
 	if (dynamic_cast<A*>(p))
 		std::cout << "A" << std::endl;
@@ -28,14 +28,46 @@ void identify(Base* p) // * et pas & car sinon on ne return pas nullptr en cas d
 		std::cout << "C" << std::endl;
 }
 
+void identify(Base& p)
+{
+	try
+	{
+		(void)dynamic_cast<A&>(p);
+		std::cout << "A" << std::endl;
+		return ;
+	}
+	catch (...)
+	{	}
+
+	try
+	{
+		(void)dynamic_cast<B&>(p);
+		std::cout << "B" << std::endl;
+		return ;
+	}
+	catch (...)
+	{	}
+
+	try
+	{
+		(void)dynamic_cast<C&>(p);
+		std::cout << "C" << std::endl;
+		return ;
+	}
+	catch (...)
+	{	}
+}
 
 
 int	main ()
 {
 	Base * plop = generate();
+	Base *toto = generate();
 
 	identify(plop);
+	identify(*toto);
 
 	delete (plop);
+	delete (toto);
 	return (0);
 }
